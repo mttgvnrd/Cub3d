@@ -21,7 +21,6 @@
 
 # include "./minilibx-linux/mlx.h"
 # include "./src/libft/libft.h"
-# include "./src/Printf/ft_printf.h"
 # include "./src/GNL/get_next_line.h"
 
 #define WIN_X 1300
