@@ -26,9 +26,21 @@
 #define WIN_X 1300
 #define WIN_Y 770
 
+typedef struct rgb
+{
+    int     r;
+    int     g;
+    int     b;
+    int     full_rgb;
+}   t_rgb;
 
 typedef struct map
 {
+    char    *no;
+    char    *so;
+    char    *we;
+    char    *ea;
+
     bool    f_map;
 
 }   t_map;
@@ -47,6 +59,7 @@ typedef struct cube
     bool    f_wind;
 
     t_map   map;
+    t_rgb   rgb;
 
 }   t_cube;
 
