@@ -14,9 +14,17 @@
 # define LIBFT_H
 
 // headers
-# include <unistd.h>
+# include <stdio.h>
+# include <string.h>
 # include <stdlib.h>
-
+# include <unistd.h>
+# include <limits.h>
+# include <stdint.h>
+# include <stddef.h>
+# include <stdarg.h>
+# include <fcntl.h>
+# include <stdbool.h>
+# include <math.h>
 // struct declaration
 typedef struct s_list
 {
@@ -68,6 +76,8 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
-int	ft_strcmp(char *s1, char *s2);
+int		ft_strcmp(char *s1, char *s2);
+char	*ft_strncpy(char *dest, char *src, unsigned int n);
+
 
 #endif

@@ -28,6 +28,7 @@
 
 typedef struct rgb
 {
+    bool    complete;
     int     r;
     int     g;
     int     b;
@@ -40,8 +41,13 @@ typedef struct map
     char    *so;
     char    *we;
     char    *ea;
+    t_rgb   floor_rgb;
+    t_rgb   ceiling_rgb;
+    size_t  y;
+    size_t  x;
 
     bool    f_map;
+    bool    complete;
 
 }   t_map;
 

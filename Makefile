@@ -13,7 +13,7 @@
 
 NAME = cub3d
 
-SRC = main.c init.c exit.c
+SRC = main.c init.c exit.c parse.c rgb.c
 
 OBJ = $(SRC:.c=.o)
 

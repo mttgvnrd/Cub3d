@@ -20,15 +20,30 @@ int     ft_parse(t_cube *cube, char *path)
     int     flag;
 
     fd = open(path, O_RDONLY);
+    if (fd == -1)
+        ft_error("Error, can't open the file\n", cube);
     check = 1;
     flag = 0;
-    while (check > 1)
+    while (check > 0)
     {
         check = ft_get_next_line(fd, &cube->line);
         ft_map(cube);
+        if (parse_complete(cube))
+            {
+                if(ft_strchr(cube->line, '1') && flag)
+                    ft_scan_map()
+            }
     }
 }
 
+void    ft_scan_map(t_cube *cube, char *line)
+{
+    if (cube->map.x < ft_strlen(line))
+        cube->map.x = ft_strlen(line);
+    if (ft_new_str_arr(line, cube))
+
+    
+}
 
 //analizzo il file della mappa e mi salvo i percorsi delle varie
 //texture da assegnare e i colori 
@@ -55,9 +70,9 @@ void    ft_map(t_cube *cube)
         save_pos(cube, cube->map.we);
     }
     else if (!ft_strncmp(cube->line, "F", 1))
-        ft_save_colour(&cube->rgb, cube->line + 2);
+        ft_save_colour(&cube->map.floor_rgb, cube->line + 2);
     else if (!ft_strncmp(cube->line, "C", 1))
-        ft_save_colour(&cube->rgb, cube->line + 2);
+        ft_save_colour(&cube->map.ceiling_rgb, cube->line + 2);
 }
 
 void    save_pos(t_cube *cube, char *pos)
@@ -77,7 +92,15 @@ void    save_pos(t_cube *cube, char *pos)
         ft_strncpy(pos, tmp, ft_strlen(tmp));
 }
 
-void    ft_save_colour(t_rgb *rgb, char *code)
+int     parse_complete(t_cube *cube)
 {
-    
+    if (cube->map.no && cube->map.so &&
+        cube->map.we && cube->map.ea &&
+        cube->map.floor_rgb.complete && 
+        cube->map.ceiling_rgb.complete)
+        {
+            cube->map.complete = 1;
+            return(1);
+        }
+        return(0);
 }

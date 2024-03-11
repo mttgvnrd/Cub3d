@@ -14,11 +14,16 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
+#  define BUFFER_SIZE 128
+# endif
+
+# ifndef FD_MAX_COUNT
+#  define FD_MAX_COUNT 4096
 # endif
 
 # include <stdlib.h>
 # include <unistd.h>
+# include "../libft/libft.h"
 
 char	*get_next_line(int fd);
 int		ft_strlen2(const char *str);
