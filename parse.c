@@ -31,9 +31,12 @@ int     ft_parse(t_cube *cube, char *path)
         if (parse_complete(cube))
             {
                 if(ft_strchr(cube->line, '1') && flag)
-                    ft_scan_map()
+                    ft_scan_map(cube, cube->line);
+                flag = 1;
             }
+            ft_free(cube->line);
     }
+    close(fd);
 }
 
 void    ft_scan_map(t_cube *cube, char *line)
@@ -41,8 +44,10 @@ void    ft_scan_map(t_cube *cube, char *line)
     if (cube->map.x < ft_strlen(line))
         cube->map.x = ft_strlen(line);
     if (ft_new_str_arr(line, cube))
-
-    
+    {
+        ft_free(line);
+        ft_error("Error, can't allocate map line", cube);
+    }
 }
 
 //analizzo il file della mappa e mi salvo i percorsi delle varie

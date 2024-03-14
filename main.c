@@ -31,8 +31,10 @@ void    ft_check_map(t_cube *cube, char *path)
     if (ft_check_file(path, ".cub"))
         return ft_error("Invalid file format", cube);
     cube->map.f_map = 0;
-    /////
 	ft_parse(cube, path);
+    if (cube->map.f_map == 1)
+        ft_error("Error file format", cube);
+    ft_check_elements(cube);
 
     
 }
@@ -47,3 +49,22 @@ int     ft_check_file(char *file, char *extencion)
     return (1);
 }
 
+void    ft_check_elements(t_cube *cube)
+{
+    size_t  x;
+    size_t  y;
+
+    x = -1;
+    if (!cube->map.complete)
+        ft_error("Error: invalid map", cube);
+    while(cube->map.render[++y])
+    {
+        x = -1;
+        while(cube->map.render[++x])
+        {
+            if (!ft_strchr("01NSEW", cube->map.render[y][x]))
+                ft_error("Invalid character", cube);
+        }
+    }
+    cube->map.y = y;
+}

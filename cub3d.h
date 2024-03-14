@@ -37,6 +37,7 @@ typedef struct rgb
 
 typedef struct map
 {
+    char    **render;
     char    *no;
     char    *so;
     char    *we;
