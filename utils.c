@@ -72,4 +72,3 @@ int ft_new_str_arr(char *str, t_cube *cube)
 	cube->map.render = new_arr;
 	return (0);
 }
-

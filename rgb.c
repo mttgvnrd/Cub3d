@@ -12,26 +12,6 @@
 
 #include "cub3d.h"
 
-void	ft_free(void *pt)
-{
-	free(pt);
-	pt = NULL;
-}
-
-void	ft_clear_arr(char **arr)
-{
-	size_t	i;
-
-	i = 0;
-	if (arr != NULL)
-	{
-		while (arr[i])
-			ft_free(arr[i++]);
-	}
-	ft_free(arr);
-	arr = NULL;
-}
-
 int	ft_encode_rgb(uint8_t red, uint8_t green, uint8_t blue)
 {
 	return (red << 16 | green << 8 | blue);

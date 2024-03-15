@@ -13,32 +13,6 @@
 
 #include "cub3d.h"
 
-int     ft_parse(t_cube *cube, char *path)
-{
-    int     fd;
-    int     check;
-    int     flag;
-
-    fd = open(path, O_RDONLY);
-    if (fd == -1)
-        ft_error("Error, can't open the file\n", cube);
-    check = 1;
-    flag = 0;
-    while (check > 0)
-    {
-        check = ft_get_next_line(fd, &cube->line);
-        ft_map(cube);
-        if (parse_complete(cube))
-            {
-                if(ft_strchr(cube->line, '1') && flag)
-                    ft_scan_map(cube, cube->line);
-                flag = 1;
-            }
-            ft_free(cube->line);
-    }
-    close(fd);
-}
-
 void    ft_scan_map(t_cube *cube, char *line)
 {
     if (cube->map.x < ft_strlen(line))
@@ -108,4 +82,30 @@ int     parse_complete(t_cube *cube)
             return(1);
         }
         return(0);
+}
+
+int     ft_parse(t_cube *cube, char *path)
+{
+    int     fd;
+    int     check;
+    int     flag;
+
+    fd = open(path, O_RDONLY);
+    if (fd == -1)
+        ft_error("Error, can't open the file\n", cube);
+    check = 1;
+    flag = 0;
+    while (check > 0)
+    {
+        check = ft_get_next_line(fd, &cube->line);
+        ft_map(cube);
+        if (parse_complete(cube))
+            {
+                if(ft_strchr(cube->line, '1') && flag)
+                    ft_scan_map(cube, cube->line);
+                flag = 1;
+            }
+            ft_free(cube->line);
+    }
+    close(fd);
 }
