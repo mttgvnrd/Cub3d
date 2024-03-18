@@ -35,6 +35,7 @@ void    ft_check_map(t_cube *cube, char *path)
     if (cube->map.f_map == 1)
         ft_error("Error file format", cube);
     ft_check_elements(cube);
+    ft_check_square(&cube->map.render, '.');
 
     
 }

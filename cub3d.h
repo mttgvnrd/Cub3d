@@ -100,5 +100,9 @@ int     ft_quit(t_cube *cube);
 //INIT
 void ft_init_window(t_cube *cube);
 
+//SQUARE
+void    ft_check_square(char **render, char dot);
+int     ft_max_width(char **render);
+
 
 #endif
