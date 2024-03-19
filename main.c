@@ -36,6 +36,7 @@ void    ft_check_map(t_cube *cube, char *path)
         ft_error("Error file format", cube);
     ft_check_elements(cube);
     ft_check_square(&cube->map.map, '.');
+    ft_map_parse(cube);
 
     
 }
@@ -68,4 +69,32 @@ void    ft_check_elements(t_cube *cube)
         }
     }
     cube->map.y = y;
+}
+
+void    ft_map_parse(t_cube *cube)
+{
+    size_t  y;
+    size_t  x;
+
+    //cube->player.
+    y = -1;
+    while (cube->map.map[++y])
+    {
+        x = -1;
+        while (cube->map.map[y][++x])
+        {
+            if (ft_strchr("0NSEW" , cube->map.map[y][x]))
+            {
+                if(!ft_close_veritcal(cube, y, x))/////////////
+                    ft_error("Error: map is not closed", cube);
+                if(!ft_close_horizontal(cube, y, x))//////////////
+                    ft_error("Error: map is not closed", cube);
+            }
+            if (ft_strchr("NSEW", cube->map.map[y][x]))
+            {
+                //cube->player.spawn += 1;
+                //ft_spawn_player();
+            }
+        }
+    }
 }
