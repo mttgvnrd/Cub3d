@@ -12,7 +12,7 @@
 
 #include "cub3d.h"
 
-int     ft_max_width(char **render)
+int     ft_max_width(char **map)
 {
     size_t  max;
     size_t  temp_max;
@@ -21,22 +21,34 @@ int     ft_max_width(char **render)
     max = 0;
     temp_max = 0;
     x = 0;
-    while(render[0][x++])
+    while(map[0][x++])
     {
-        temp_max =ft_strlen(render[0][x]);
+        temp_max =ft_strlen(map[0][x]);
         if (temp_max > max)
             max = temp_max;
     }
     return (max);
 }
 
-void    ft_check_square(char **render, char dot)
+void    ft_check_square(char **map, char dot)
 {
     char    tmp1;
     char    tmp2;
     size_t  y;
+    size_t  a;
+    size_t  b;
 
-    if(!render)
+    if(!map)
         return ;
-    y = ft_max_width(render);
+    y = ft_max_width(map);
+    a = -1;
+    while(map[0][++a])
+    {
+        b = 0;
+        b = strlen(map[0][a]);
+        if (b < y)
+        {
+            tmp1 = 
+        }
+    }
 }

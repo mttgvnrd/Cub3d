@@ -38,10 +38,10 @@ static int	ft_str_count(t_cube *cube)
 	int	i;
 
 	i = 0;
-	if (!cube->map.render)
+	if (!cube->map.map)
 		return (i);
 	else
-		while (cube->map.render[++i])
+		while (cube->map.map[++i])
 			;
 	return (i);
 }
@@ -64,11 +64,11 @@ int ft_new_str_arr(char *str, t_cube *cube)
 	if (!new_arr)
 		return (1);
 	while (++j < x)
-		new_arr[j] = ft_strdup(cube->map.render[j]);
+		new_arr[j] = ft_strdup(cube->map.map[j]);
 	new_arr[x] = n_str;
 	new_arr[x + 1] = NULL;
-	if (cube->map.render)
-		ft_clear_arr(cube->map.render);
-	cube->map.render = new_arr;
+	if (cube->map.map)
+		ft_clear_arr(cube->map.map);
+	cube->map.map = new_arr;
 	return (0);
 }

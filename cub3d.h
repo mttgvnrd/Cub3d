@@ -37,7 +37,7 @@ typedef struct rgb
 
 typedef struct map
 {
-    char    **render;
+    char    **map;
     char    *no;
     char    *so;
     char    *we;
@@ -101,8 +101,8 @@ int     ft_quit(t_cube *cube);
 void ft_init_window(t_cube *cube);
 
 //SQUARE
-void    ft_check_square(char **render, char dot);
-int     ft_max_width(char **render);
+void    ft_check_square(char **map, char dot);
+int     ft_max_width(char **map);
 
 
 #endif
