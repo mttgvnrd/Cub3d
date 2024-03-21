@@ -46,29 +46,30 @@ static int	ft_str_count(t_cube *cube)
 	return (i);
 }
 
+//aggiunge una nuova stringa all'array della mappa
 int ft_new_str_arr(char *str, t_cube *cube)
 {
+	char	**new_map;
+	char	*new_str;
 	int		x;
 	int		j;
-	char	**new_arr;
-	char	*n_str;
 
 	x = -1;
 	j = -1;
-	n_str = ft_calloc((ft_strlen(str) + 1), sizeof(char));
-	if (!n_str)
+	new_str = ft_calloc((ft_strlen(str) + 1), sizeof(char));
+	if (!new_str)
 		return (1);
-	ft_strcpy(n_str, str);
+	ft_strcpy(new_str, str);
 	x = ft_str_count(cube);
-	new_arr = ft_calloc((x + 2), sizeof(char *));
-	if (!new_arr)
+	new_map = ft_calloc((x + 2), sizeof(char *));
+	if (!new_map)
 		return (1);
 	while (++j < x)
-		new_arr[j] = ft_strdup(cube->map.map[j]);
-	new_arr[x] = n_str;
-	new_arr[x + 1] = NULL;
+		new_map[j] = ft_strdup(cube->map.map[j]);
+	new_map[x] = new_str;
+	new_map[x + 1] = NULL;
 	if (cube->map.map)
 		ft_clear_arr(cube->map.map);
-	cube->map.map = new_arr;
+	cube->map.map = new_map;
 	return (0);
 }

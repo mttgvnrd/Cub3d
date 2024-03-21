@@ -71,6 +71,7 @@ void    save_pos(t_cube *cube, char *pos)
         ft_strncpy(pos, tmp, ft_strlen(tmp));
 }
 
+//controllo se tutte le texture sono state assegnate
 int     parse_complete(t_cube *cube)
 {
     if (cube->map.no && cube->map.so &&

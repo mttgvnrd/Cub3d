@@ -52,6 +52,10 @@ typedef struct map
 
 }   t_map;
 
+typedef struct player
+{
+    int     spawn;
+}   t_player;
 
 typedef struct cube
 {
@@ -65,6 +69,7 @@ typedef struct cube
 
     bool    f_wind;
 
+    t_player     player;
     t_map   map;
     t_rgb   rgb;
 

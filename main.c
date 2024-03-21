@@ -21,7 +21,8 @@ int main(int argc, char **argv)
             printf("Invalid input\n");
             return (1);
         }
-    ft_check_map(&cube, argv[1]);
+    ///////inizia variabili
+    ft_check_map(&cube, argv[1]);//FIXARE CONTROLLO SU CARATTERI NON CONSENTITI 
     ft_init_window(&cube);
 	
 }
@@ -76,7 +77,7 @@ void    ft_map_parse(t_cube *cube)
     size_t  y;
     size_t  x;
 
-    //cube->player.
+    cube->player.spawn = 0;
     y = -1;
     while (cube->map.map[++y])
     {
@@ -92,7 +93,7 @@ void    ft_map_parse(t_cube *cube)
             }
             if (ft_strchr("NSEW", cube->map.map[y][x]))
             {
-                //cube->player.spawn += 1;
+                cube->player.spawn += 1;
                 //ft_spawn_player();
             }
         }
