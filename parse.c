@@ -66,7 +66,7 @@ void    save_pos(t_cube *cube, char *pos)
     fd = open(tmp, O_RDONLY);
     close(fd);
     if (fd == -1)
-        cube->map.f_map == 1;
+        cube->map.f_map = 1;
     else
         ft_strncpy(pos, tmp, ft_strlen(tmp));
 }
@@ -85,7 +85,7 @@ int     parse_complete(t_cube *cube)
         return(0);
 }
 
-int     ft_parse(t_cube *cube, char *path)
+void     ft_parse(t_cube *cube, char *path)
 {
     int     fd;
     int     check;

@@ -10,14 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "cub3d.h"
-
-void	ft_free(void *pt)
-{
-	free(pt);
-	pt = NULL;
-}
 
 void	ft_clear_arr(char **arr)
 {

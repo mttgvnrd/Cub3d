@@ -21,7 +21,6 @@
 
 # include "./minilibx-linux/mlx.h"
 # include "./src/libft/libft.h"
-# include "./src/GNL/get_next_line.h"
 
 #define WIN_X 1300
 #define WIN_Y 770
@@ -81,6 +80,10 @@ void    ft_check_map(t_cube *cube, char *path);
 int     ft_check_file(char *file, char *extencion);
 void    ft_check_elements(t_cube *cube);
 
+void    ft_map_parse(t_cube *cube);
+bool     ft_close_vertical(t_cube *cube, size_t y, size_t x);
+bool     ft_close_horizontal(t_cube *cube, size_t y, size_t x);
+
 //RGB
 int	    ft_encode_rgb(uint8_t red, uint8_t green, uint8_t blue);
 void	ft_save_colour(t_rgb *rgb, char *rgb_code);
@@ -88,11 +91,11 @@ void	ft_save_colour(t_rgb *rgb, char *rgb_code);
 //UTILS
 void	ft_free(void *pt);
 void	ft_clear_arr(char **arr);
-static int	ft_str_count(t_cube *cube);
+//static int	ft_str_count(t_cube *cube);
 int     ft_new_str_arr(char *str, t_cube *cube);
 
 //PARSE
-int     ft_parse(t_cube *cube, char *path);
+void     ft_parse(t_cube *cube, char *path);
 int     parse_complete(t_cube *cube);
 void    save_pos(t_cube *cube, char *pos);
 void    ft_map(t_cube *cube);
@@ -106,8 +109,9 @@ int     ft_quit(t_cube *cube);
 void ft_init_window(t_cube *cube);
 
 //SQUARE
-void    ft_check_square(char **map, char dot);
-int     ft_max_width(char **map);
+void    ft_check_square(char ***map, char dot);
+int     ft_max_width(char ***map);
+char    *ft_fill_space(char c,size_t size);
 
 
 #endif

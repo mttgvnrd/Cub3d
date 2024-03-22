@@ -13,7 +13,7 @@
 #include "cub3d.h"
 
 //ritorna la larghezza massima dell'array di stringhe
-int     ft_max_width(char **map)
+int     ft_max_width(char ***map)
 {
     size_t  max;
     size_t  temp_max;
@@ -24,7 +24,7 @@ int     ft_max_width(char **map)
     x = 0;
     while(map[0][x++])
     {
-        temp_max =ft_strlen(map[0][x]);
+        temp_max = ft_strlen(map[0][x]);
         if (temp_max > max)
             max = temp_max;
     }
@@ -32,10 +32,10 @@ int     ft_max_width(char **map)
 }
 
 //funzione che serve ad aggiungere spazi vuoti fino a raggiungere la larghezza massima della mappa
-void    ft_check_square(char **map, char dot)
+void    ft_check_square(char ***map, char dot)
 {
-    char    tmp1;
-    char    tmp2;
+    char    *tmp1;
+    char    *tmp2;
     size_t  x;
     size_t  a;
     size_t  b;
@@ -59,7 +59,7 @@ void    ft_check_square(char **map, char dot)
     }
 }
 
-char    ft_fill_space(char c,size_t size)
+char    *ft_fill_space(char c,size_t size)
 {
 	size_t	i;
 	char	*str;

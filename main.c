@@ -57,7 +57,7 @@ void    ft_check_elements(t_cube *cube)
     size_t  x;
     size_t  y;
 
-    x = -1;
+    y = -1;
     if (!cube->map.complete)
         ft_error("Error: invalid map", cube);
     while(cube->map.map[++y])
@@ -86,7 +86,7 @@ void    ft_map_parse(t_cube *cube)
         {
             if (ft_strchr("0NSEW" , cube->map.map[y][x]))
             {
-                if(!ft_close_veritcal(cube, y, x))/////////////
+                if(!ft_close_vertical(cube, y, x))
                     ft_error("Error: map is not closed", cube);
                 if(!ft_close_horizontal(cube, y, x))//////////////
                     ft_error("Error: map is not closed", cube);
@@ -98,4 +98,58 @@ void    ft_map_parse(t_cube *cube)
             }
         }
     }
+}
+
+bool     ft_close_vertical(t_cube *cube, size_t y, size_t x)
+{
+    bool     r;
+    bool     l;
+    size_t  count;
+
+    r = 0;
+    l = 0;
+    count = x;
+    while (cube->map.map[y][--count] && r == 0)
+    {
+        //if (ft_strchr(".", cube->map.map[i][k]))
+			//error("MAP NOT CLOSED", cube);
+		if (ft_strchr("1", cube->map.map[y][count]))
+			r = 1;
+    }
+    count = x;
+    while (cube->map.map[y][++count])
+    {
+        //if (ft_strchr(".", cube->map.map[i][k]))
+			//error("MAP NOT CLOSED", cube);
+		if (ft_strchr("1", cube->map.map[y][count]))
+			l = 1;
+    }
+    return (r & l);
+}
+
+bool     ft_close_horizontal(t_cube *cube, size_t y, size_t x)
+{
+	bool	up;
+	bool	down;
+	size_t	count;
+
+	up = 0;
+	down = 0;
+	count = y;
+	while (up == 0 && cube->map.map[--count])
+	{
+		if (ft_strchr(".", cube->map.map[count][x]))
+			ft_error("MAP NOT CLOSED", cube);
+		if (ft_strchr("1", cube->map.map[count][x]))
+			up = 1;
+	}
+	count = y;
+	while (down == 0 && cube->map.map[++count])
+	{
+		if (ft_strchr(".", cube->map.map[count][x]))
+			ft_error("MAP NOT CLOSED", cube);
+		if (ft_strchr("1", cube->map.map[count][x]))
+			down = 1;
+	}
+	return (up && down);
 }

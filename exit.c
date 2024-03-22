@@ -27,4 +27,5 @@ int ft_quit(t_cube *cube)
         mlx_clear_window(cube->mlx, cube->window);
         mlx_destroy_window(cube->mlx, cube->window);
     }
+    return (1);
 }

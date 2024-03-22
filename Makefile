@@ -13,7 +13,7 @@
 
 NAME = cub3d
 
-SRC = main.c init.c exit.c parse.c rgb.c
+SRC = main.c init.c exit.c parse.c rgb.c square.c utils.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -23,19 +23,11 @@ LINK = ./minilibx-linux/libmlx_Linux.a -lX11 -lXext -lm
 
 LIBFT = ./src/libft/libft.a
 
-GNL = ./src/GNL/GNL.a
-
-all: lib printf gnl $(NAME)
+all: lib $(NAME)
 
 lib:
 	make -s -C src/libft
 
-printf:
-	make -s -C src/Printf
-        
-gnl:
-	make -s -C src/GNL
-	
 $(NAME): $(OBJ)
 	@echo "\033[32mCompiling $(NAME)"
 	@gcc $(CFLAGS) $(OBJ) $(LIBFT) $(GNL) $(LINK) -o $(NAME)
@@ -45,12 +37,10 @@ clean:
 	@echo "\033[0;31mCleaning objects"
 	@rm -rf $(OBJ)
 	@make clean -s -C src/libft
-	@make clean -s -C src/GNL
 
 fclean: clean
 	@echo "\033[0;31mRemoving $(NAME)\033[0;37m"
 	@rm -rf $(NAME)
 	@make fclean -s -C src/libft
-	@make fclean -s -C src/GNL
 
 re: fclean all
