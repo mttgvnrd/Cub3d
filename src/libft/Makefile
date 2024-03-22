@@ -17,12 +17,15 @@ SRCS			=	ft_isalnum.c ft_isprint.c ft_memcmp.c  ft_putchar_fd.c ft_split.c \
 					ft_memmove.c ft_putnbr_fd.c  ft_strdup.c  ft_strlen.c  ft_strrchr.c \
 					ft_toupper.c ft_calloc.c  ft_isdigit.c ft_memchr.c  ft_memset.c  \
 					ft_putstr_fd.c  ft_strjoin.c ft_strmapi.c ft_strtrim.c  ft_striteri.c \
-					ft_strncpy.c
+					ft_strncpy.c ft_set.c ft_malloc.c ft_free.c ft_strcpy.c get_next_line.c \
+					get_next_line_utils.c
+
 OBJS			= $(SRCS:.c=.o)
 
 BONUS			=	ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c \
 					ft_lstdelone.c ft_lstiter.c ft_lstlast.c \
-					ft_lstmap.c ft_lstnew.c ft_lstsize.c
+					ft_lstmap.c ft_lstnew.c ft_lstsize.c get_next_line_bonus.c \
+					get_next_line_utils_bonus.c
 BONUS_OBJS		= $(BONUS:.c=.o)
 
 CC				= gcc

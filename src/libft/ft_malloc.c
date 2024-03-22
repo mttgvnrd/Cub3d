@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_malloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgiovana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/20 11:48:47 by mgiovana          #+#    #+#             */
-/*   Updated: 2022/10/20 12:12:01 by mgiovana         ###   ########.fr       */
+/*   Created: 2024/03/22 14:15:07 by mgiovana          #+#    #+#             */
+/*   Updated: 2024/03/22 14:15:20 by mgiovana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	*ft_malloc(size_t size)
 {
-	t_list	*tmp;
-
-	tmp = ft_lstlast(*lst);
-	if (!tmp)
-		*lst = new;
-	else
-		tmp->next = new;
+	return (malloc(size));
 }

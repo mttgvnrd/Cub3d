@@ -1,24 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_set.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgiovana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/20 11:48:47 by mgiovana          #+#    #+#             */
-/*   Updated: 2022/10/20 12:12:01 by mgiovana         ###   ########.fr       */
+/*   Created: 2024/03/22 14:10:05 by mgiovana          #+#    #+#             */
+/*   Updated: 2024/03/22 14:10:20 by mgiovana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+int8_t	ft_set8(int8_t *a, int8_t b)
 {
-	t_list	*tmp;
+	*a = b;
+	return (b);
+}
 
-	tmp = ft_lstlast(*lst);
-	if (!tmp)
-		*lst = new;
-	else
-		tmp->next = new;
+int16_t	ft_set16(int16_t *a, int16_t b)
+{
+	*a = b;
+	return (b);
+}
+
+int32_t	ft_set32(int32_t *a, int32_t b)
+{
+	*a = b;
+	return (b);
+}
+
+int64_t	ft_set64(int64_t *a, int64_t b)
+{
+	*a = b;
+	return (b);
 }
