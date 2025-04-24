@@ -28,7 +28,7 @@
   - File `.cub` malformato → errore con messaggio esplicito  
 
 ## 🎥 Demo
-![Demo Video](./clip/example_clip.mp4)
+![Demo Video](./clip/example_clip.gif)
 
 ## 🛠️ Installazione & Utilizzo  
 ```bash
