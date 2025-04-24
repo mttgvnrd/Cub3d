@@ -31,7 +31,7 @@
 
 ## 🛠️ Installazione & Utilizzo  
 ```bash
-git clone https://github.com/mttgvnrd/cub3D.git
+git clone https://github.com/mttgvnrd/Cub3d.git
 cd cub3D
 make  # Compila il progetto
 
