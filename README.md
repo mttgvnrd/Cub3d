@@ -27,7 +27,8 @@
   - Mappa non chiusa → errore  
   - File `.cub` malformato → errore con messaggio esplicito  
 
----
+## 🎥 Demo
+![Demo Video](./clip/example_clip.mp4)
 
 ## 🛠️ Installazione & Utilizzo  
 ```bash
